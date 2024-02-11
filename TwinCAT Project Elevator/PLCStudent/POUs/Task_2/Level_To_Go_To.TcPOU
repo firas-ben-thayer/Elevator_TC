@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Level_To_Go_To" Id="{88d3b782-4b29-42d1-bb53-a905777e3050}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Level_To_Go_To
+VAR_INPUT
+	Queu: ARRAY[1..3] OF INT:= [0,0,0];
+END_VAR
+VAR_OUTPUT
+	Level_one: BOOL;
+	Level_two: BOOL;
+	Level_three: BOOL;
+END_VAR
+VAR
+	Level: INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Level := Queu[1];
+IF Level = 1 THEN
+	Level_one := TRUE;
+	Level_two := FALSE;
+	Level_three := FALSE;
+ELSIF Level = 2 THEN
+	Level_one := FALSE;
+	Level_two := TRUE;
+	Level_three := FALSE;
+ELSIF Level = 3 THEN
+	Level_three := TRUE;
+	Level_one := FALSE;
+	Level_two := FALSE;
+ELSE
+	Level_one := FALSE;
+	Level_two := FALSE;
+	Level_three := FALSE;
+END_IF;]]></ST>
+    </Implementation>
+    <LineIds Name="Level_To_Go_To">
+      <LineId Id="18" Count="1" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="52" Count="1" />
+      <LineId Id="26" Count="1" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

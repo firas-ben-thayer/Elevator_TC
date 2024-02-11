@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Arrival_At_Level" Id="{c046a203-61f7-407b-a97c-af4d05d25f92}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Arrival_At_Level
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+	xPopped: BOOL;
+	xAheadOfTheQueu: INT;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF GVL.ixElevatLevel1 THEN
+	xPopped := TRUE;
+	xAheadOfTheQueu := 1;
+ELSIF GVL.ixElevatLevel2 THEN
+	xPopped := TRUE;
+	xAheadOfTheQueu := 2;
+ELSIF GVL.ixElevatLevel3 THEN
+	xPopped := TRUE;
+	xAheadOfTheQueu := 3;
+ELSE
+	xPopped:= FALSE;
+	xAheadOfTheQueu:= -1;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="Arrival_At_Level">
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="25" Count="2" />
+      <LineId Id="24" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

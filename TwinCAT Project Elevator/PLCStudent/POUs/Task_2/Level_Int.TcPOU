@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Level_Int" Id="{5fb96222-8b60-47f2-b2c7-f53268fac5b7}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Level_Int
+VAR_INPUT
+	xLevel_1_Level: BOOL;
+	xLevel_1_Elevate: BOOL;
+	xLevel_2_Level: BOOL;
+	xLevel_2_Elevate: BOOL;
+	xLevel_3_Level: BOOL;
+	xLevel_3_Elevate: BOOL;
+END_VAR
+VAR_OUTPUT
+	qButtonPushed: BOOL;
+	qToInt: INT;
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF xLevel_1_Level THEN
+	qButtonPushed:= TRUE;
+	qToInt:= 1;
+ELSIF xLevel_1_Elevate THEN
+	qButtonPushed:= TRUE;
+	qToInt:= 1;
+ELSIF xLevel_2_Level THEN
+	qButtonPushed:= TRUE;
+	qToInt:= 2;
+ELSIF xLevel_2_Elevate THEN
+	qButtonPushed:= TRUE;
+	qToInt:= 2;
+ELSIF xLevel_3_Level THEN
+	qButtonPushed:= TRUE;
+	qToInt:= 3;
+ELSIF xLevel_3_Elevate THEN
+	qButtonPushed:= TRUE;
+	qToInt:= 3;
+ELSE
+	qButtonPushed:= FALSE;
+	qToInt:= -1;
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="Level_Int">
+      <LineId Id="9" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="51" Count="1" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="54" Count="2" />
+      <LineId Id="60" Count="1" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="24" Count="2" />
+      <LineId Id="15" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
